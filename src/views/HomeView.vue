@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from '@/components/HelloWorld.vue'
+import CatFactsList from '@/components/CatFactsList.vue'
 </script>
 
 <template>
-  <HelloWorld />
+  <CatFactsList />
 </template>
