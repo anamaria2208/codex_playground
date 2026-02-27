@@ -12,5 +12,9 @@ export async function fetchCatFact(): Promise<string> {
   }
 
   const data = (await response.json()) as CatFactResponse
+  if (typeof data.fact !== 'string' || data.fact.trim().length === 0) {
+    throw new Error(CAT_FACT_FETCH_ERROR)
+  }
+
   return data.fact
 }
