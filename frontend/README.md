@@ -23,6 +23,15 @@ npm install
 npm run dev
 ```
 
+`npm run dev` sada pokrece i frontend i .NET backend (`http://localhost:5237`) u istom terminalu.
+
+Ako backend vrtis na drugom URL-u, postavi:
+
+```sh
+$env:VITE_API_PROXY_TARGET="https://localhost:7095"
+npm run dev:frontend
+```
+
 ### Type check + build
 
 ```sh

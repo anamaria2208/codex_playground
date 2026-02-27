@@ -1,0 +1,27 @@
+[
+  {
+    "ContainingType": "CatFacts.Api.Controllers.CatFactsController",
+    "Method": "GetRandom",
+    "RelativePath": "api/cat-facts/random",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "CatFacts.Api.Models.CatFactResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 502
+      }
+    ]
+  }
+]

@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "run-p dev:backend dev:frontend",
+    "dev:frontend": "vite",
+    "dev:backend": "dotnet run --project ../backend/CatFacts.Api --urls http://localhost:5237",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",

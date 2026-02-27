@@ -1,4 +1,3 @@
-const API_BASE_URL = 'https://catfact.ninja'
 export const CAT_FACT_FETCH_ERROR = 'CAT_FACT_FETCH_ERROR'
 
 type CatFactResponse = {
@@ -6,7 +5,7 @@ type CatFactResponse = {
 }
 
 export async function fetchCatFact(): Promise<string> {
-  const response = await fetch(`${API_BASE_URL}/fact?_t=${Date.now()}`)
+  const response = await fetch('/api/cat-facts/random')
 
   if (!response.ok) {
     throw new Error(CAT_FACT_FETCH_ERROR)
