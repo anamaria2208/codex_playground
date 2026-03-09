@@ -92,3 +92,17 @@ body {
   border-color: rgba(191, 219, 254, 1) !important;
   color: #0f172a !important;
 }
+
+
+:root.dark-theme .cat-card .p-card {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+}
+
+:root.dark-theme .cat-card .p-card .p-card-title {
+  color: #f8fafc !important;
+}
+
+:root.dark-theme .cat-card .p-card .p-card-subtitle {
+  color: #cbd5e1 !important;
+}
