@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { RouterView } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import SelectButton from 'primevue/selectbutton'
 import { setAppLocale, type AppLocale } from '@/i18n'
+
+type AppTheme = 'light' | 'dark'
+const THEME_STORAGE_KEY = 'app-theme'
 
 const { locale, t } = useI18n({ useScope: 'global' })
 
@@ -11,6 +14,30 @@ const localeOptions: { label: string; value: AppLocale }[] = [
   { label: 'HR', value: 'hr' },
   { label: 'EN', value: 'en' }
 ]
+
+const theme = ref<AppTheme>('light')
+
+const themeOptions = computed(() => [
+  { label: t('app.themeLight'), value: 'light' as AppTheme },
+  { label: t('app.themeDark'), value: 'dark' as AppTheme }
+])
+
+const applyTheme = (value: AppTheme) => {
+  theme.value = value
+  document.documentElement.classList.toggle('dark-theme', value === 'dark')
+  localStorage.setItem(THEME_STORAGE_KEY, value)
+}
+
+onMounted(() => {
+  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY)
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    applyTheme(savedTheme)
+    return
+  }
+
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  applyTheme(prefersDark ? 'dark' : 'light')
+})
 
 const selectedLocale = computed({
   get: () => locale.value as AppLocale,
@@ -22,15 +49,28 @@ const selectedLocale = computed({
   <main class="app-shell">
     <header class="app-header">
       <h1>{{ t('app.title') }}</h1>
-      <div class="locale-switcher">
-        <span>{{ t('app.language') }}</span>
-        <SelectButton
-          v-model="selectedLocale"
-          :options="localeOptions"
-          optionLabel="label"
-          optionValue="value"
-          aria-label="Language switcher"
-        />
+      <div class="controls">
+        <div class="control-group">
+          <span>{{ t('app.language') }}</span>
+          <SelectButton
+            v-model="selectedLocale"
+            :options="localeOptions"
+            optionLabel="label"
+            optionValue="value"
+            aria-label="Language switcher"
+          />
+        </div>
+        <div class="control-group">
+          <span>{{ t('app.theme') }}</span>
+          <SelectButton
+            v-model="theme"
+            :options="themeOptions"
+            optionLabel="label"
+            optionValue="value"
+            aria-label="Theme switcher"
+            @update:model-value="applyTheme"
+          />
+        </div>
       </div>
     </header>
 
@@ -49,10 +89,10 @@ const selectedLocale = computed({
 
 .app-header {
   align-items: center;
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: var(--header-bg);
+  border: 1px solid var(--header-border);
   border-radius: 0.8rem;
-  box-shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 10px 35px var(--header-shadow);
   backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;
@@ -65,14 +105,20 @@ h1 {
   letter-spacing: 0.01em;
 }
 
-.locale-switcher {
+.controls {
+  align-items: center;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.control-group {
   align-items: center;
   display: flex;
   gap: 0.6rem;
 }
 
-.locale-switcher span {
-  color: #334155;
+.control-group span {
+  color: var(--text-secondary);
   font-size: 0.82rem;
   font-weight: 600;
 }
@@ -82,6 +128,11 @@ h1 {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.8rem;
+  }
+
+  .controls {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 </style>

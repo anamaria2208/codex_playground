@@ -1,9 +1,43 @@
 :root {
-  color: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #475569;
+
+  --header-bg: rgba(255, 255, 255, 0.65);
+  --header-border: rgba(148, 163, 184, 0.3);
+  --header-shadow: rgba(15, 23, 42, 0.08);
+
+  --hero-eyebrow: #1d4ed8;
+  --card-title: #0f172a;
+  --fact-bg-start: #f8fbff;
+  --fact-bg-end: #f1f5f9;
+  --fact-border: #e2e8f0;
+  --fact-border-accent: #1d4ed8;
+
+  color: var(--text-primary);
   font-family: 'Avenir Next', 'Nunito Sans', 'Segoe UI', sans-serif;
   line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+}
+
+:root.dark-theme {
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --header-bg: rgba(15, 23, 42, 0.68);
+  --header-border: rgba(100, 116, 139, 0.4);
+  --header-shadow: rgba(2, 6, 23, 0.45);
+
+  --hero-eyebrow: #60a5fa;
+  --card-title: #f1f5f9;
+  --fact-bg-start: #0f172a;
+  --fact-bg-end: #111827;
+  --fact-border: #334155;
+  --fact-border-accent: #60a5fa;
+
+  color-scheme: dark;
 }
 
 * {
@@ -16,5 +50,13 @@ body {
     radial-gradient(80rem 35rem at 12% -10%, rgba(30, 64, 175, 0.18), transparent 52%),
     radial-gradient(65rem 28rem at 88% -12%, rgba(16, 185, 129, 0.12), transparent 55%),
     linear-gradient(180deg, #f8fbff 0%, #eef3fb 100%);
+  color: var(--text-primary);
   min-height: 100vh;
+}
+
+:root.dark-theme body {
+  background:
+    radial-gradient(80rem 35rem at 12% -10%, rgba(30, 64, 175, 0.3), transparent 52%),
+    radial-gradient(65rem 28rem at 88% -12%, rgba(16, 185, 129, 0.18), transparent 55%),
+    linear-gradient(180deg, #020617 0%, #0b1220 100%);
 }

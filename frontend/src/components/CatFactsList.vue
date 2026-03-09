@@ -79,13 +79,13 @@ onMounted(() => {
 }
 
 .cat-card :deep(.p-card-title) {
-  color: #0f172a;
+  color: var(--card-title);
   font-size: 1.2rem;
   font-weight: 800;
 }
 
 .cat-card :deep(.p-card-subtitle) {
-  color: #475569;
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
@@ -106,18 +106,18 @@ onMounted(() => {
 
 .loading {
   align-items: center;
-  color: #334155;
+  color: var(--text-secondary);
   display: flex;
   gap: 0.55rem;
   font-size: 0.92rem;
 }
 
 .fact-text {
-  background: linear-gradient(180deg, #f8fbff 0%, #f1f5f9 100%);
-  border: 1px solid #e2e8f0;
-  border-left: 4px solid #1d4ed8;
+  background: linear-gradient(180deg, var(--fact-bg-start) 0%, var(--fact-bg-end) 100%);
+  border: 1px solid var(--fact-border);
+  border-left: 4px solid var(--fact-border-accent);
   border-radius: 0.65rem;
-  color: #0f172a;
+  color: var(--card-title);
   font-size: 0.96rem;
   line-height: 1.4;
   padding: 0.65rem 0.75rem;
