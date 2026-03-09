@@ -43,8 +43,12 @@ onMounted(() => {
 
 <template>
   <Card class="cat-card">
-    <template #title>{{ t('catFact.cardTitle') }}</template>
-    <template #subtitle>{{ t('catFact.cardSubtitle') }}</template>
+    <template #title>
+      <h2 class="card-title">{{ t('catFact.cardTitle') }}</h2>
+    </template>
+    <template #subtitle>
+      <p class="card-subtitle">{{ t('catFact.cardSubtitle') }}</p>
+    </template>
     <template #content>
       <div class="content">
         <Button
@@ -85,13 +89,13 @@ onMounted(() => {
   padding: 0.8rem;
 }
 
-.cat-card :deep(.p-card-title) {
+.card-title {
   color: var(--card-title) !important;
   font-size: 1.2rem;
   font-weight: 800;
 }
 
-.cat-card :deep(.p-card-subtitle) {
+.card-subtitle {
   color: var(--text-muted) !important;
   font-size: 0.9rem;
 }
@@ -144,7 +148,7 @@ onMounted(() => {
   border: 1px solid var(--fact-border);
   border-left: 4px solid var(--fact-border-accent);
   border-radius: 0.65rem;
-  color: var(--card-title);
+  color: var(--card-title) !important;
   font-size: 0.96rem;
   line-height: 1.4;
   padding: 0.65rem 0.75rem;
