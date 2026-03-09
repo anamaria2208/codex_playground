@@ -111,7 +111,7 @@ onMounted(() => {
 }
 
 .refresh-button :deep(.p-button) {
-  background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   border: 0;
   border-radius: 999px;
   box-shadow: 0 10px 24px rgba(37, 99, 235, 0.28);
@@ -122,7 +122,7 @@ onMounted(() => {
 }
 
 .refresh-button :deep(.p-button:not(:disabled):hover) {
-  box-shadow: 0 14px 28px rgba(20, 184, 166, 0.35);
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.4);
   filter: brightness(1.05);
   transform: translateY(-1px);
 }
