@@ -18,8 +18,8 @@ const localeOptions: { label: string; value: AppLocale }[] = [
 const theme = ref<AppTheme>('light')
 
 const themeOptions = computed(() => [
-  { label: t('app.themeLight'), value: 'light' as AppTheme },
-  { label: t('app.themeDark'), value: 'dark' as AppTheme }
+  { label: '☀️', value: 'light' as AppTheme },
+  { label: '🌙', value: 'dark' as AppTheme }
 ])
 
 const applyTheme = (value: AppTheme) => {

@@ -43,13 +43,19 @@ onMounted(() => {
 
 <template>
   <Card class="cat-card">
-    <template #title>{{ t('catFact.cardTitle') }}</template>
-    <template #subtitle>{{ t('catFact.cardSubtitle') }}</template>
+    <template #title>
+      <h2 class="card-title">{{ t('catFact.cardTitle') }}</h2>
+    </template>
+    <template #subtitle>
+      <p class="card-subtitle">{{ t('catFact.cardSubtitle') }}</p>
+    </template>
     <template #content>
       <div class="content">
         <Button
           class="refresh-button"
           :disabled="loading"
+          :loading="loading"
+          icon="pi pi-refresh"
           :label="t('catFact.refresh')"
           @click="loadFacts"
         />
@@ -73,20 +79,33 @@ onMounted(() => {
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
 }
 
+.cat-card :deep(.p-card) {
+  background: var(--card-surface) !important;
+  border: 1px solid var(--fact-border);
+}
+
 .cat-card :deep(.p-card-body) {
   gap: 0.45rem;
   padding: 0.8rem;
 }
 
-.cat-card :deep(.p-card-title) {
-  color: var(--card-title);
+.card-title {
+  color: var(--card-title) !important;
   font-size: 1.2rem;
   font-weight: 800;
 }
 
-.cat-card :deep(.p-card-subtitle) {
-  color: var(--text-muted);
+.card-subtitle {
+  color: var(--text-muted) !important;
   font-size: 0.9rem;
+}
+
+:global(:root.dark-theme) .card-title {
+  color: #1e293b !important;
+}
+
+:global(:root.dark-theme) .card-subtitle {
+  color: #475569 !important;
 }
 
 .cat-card :deep(.p-card-content) {
@@ -99,9 +118,29 @@ onMounted(() => {
 }
 
 .refresh-button {
-  justify-self: start;
-  min-width: 10.5rem;
-  padding-block: 0.45rem;
+  justify-self: center;
+  min-width: 11.5rem;
+}
+
+.refresh-button :deep(.p-button) {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.28);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.58rem 1.2rem;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.refresh-button :deep(.p-button:not(:disabled):hover) {
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.4);
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.refresh-button :deep(.p-button:disabled) {
+  opacity: 0.8;
 }
 
 .loading {
@@ -117,7 +156,7 @@ onMounted(() => {
   border: 1px solid var(--fact-border);
   border-left: 4px solid var(--fact-border-accent);
   border-radius: 0.65rem;
-  color: var(--card-title);
+  color: var(--card-title) !important;
   font-size: 0.96rem;
   line-height: 1.4;
   padding: 0.65rem 0.75rem;
@@ -125,7 +164,11 @@ onMounted(() => {
 
 @media (max-width: 600px) {
   .refresh-button {
-    justify-self: stretch;
+    width: 100%;
+  }
+
+  .refresh-button :deep(.p-button) {
+    width: 100%;
   }
 }
 
