@@ -30,7 +30,7 @@ const { t } = useI18n({ useScope: 'global' })
 }
 
 .eyebrow {
-  color: #1d4ed8;
+  color: var(--hero-eyebrow);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -38,13 +38,13 @@ const { t } = useI18n({ useScope: 'global' })
 }
 
 .title {
-  color: #0f172a;
+  color: var(--text-primary);
   font-size: clamp(1.25rem, 2vw, 1.65rem);
   line-height: 1.15;
 }
 
 .subtitle {
-  color: #475569;
+  color: var(--text-muted);
   font-size: 0.95rem;
   max-width: 58ch;
 }

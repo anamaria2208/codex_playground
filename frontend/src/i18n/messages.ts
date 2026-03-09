@@ -2,7 +2,10 @@ export const messages = {
   en: {
     app: {
       title: 'Cat Facts',
-      language: 'Language'
+      language: 'Language',
+      theme: 'Theme',
+      themeLight: 'Light',
+      themeDark: 'Dark'
     },
     home: {
       eyebrow: 'PrimeVue Demo',
@@ -23,7 +26,10 @@ export const messages = {
   hr: {
     app: {
       title: 'Cat Cinjenice',
-      language: 'Jezik'
+      language: 'Jezik',
+      theme: 'Tema',
+      themeLight: 'Svijetla',
+      themeDark: 'Tamna'
     },
     home: {
       eyebrow: 'PrimeVue Demo',
