@@ -100,6 +100,14 @@ onMounted(() => {
   font-size: 0.9rem;
 }
 
+:global(:root.dark-theme) .card-title {
+  color: #1e293b !important;
+}
+
+:global(:root.dark-theme) .card-subtitle {
+  color: #475569 !important;
+}
+
 .cat-card :deep(.p-card-content) {
   padding: 0;
 }
