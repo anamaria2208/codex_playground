@@ -43,9 +43,6 @@ onMounted(() => {
 
 <template>
   <Card class="cat-card">
-    <template #title>
-      <h2 class="card-title">{{ t('catFact.cardTitle') }}</h2>
-    </template>
     <template #subtitle>
       <p class="card-subtitle">{{ t('catFact.cardSubtitle') }}</p>
     </template>

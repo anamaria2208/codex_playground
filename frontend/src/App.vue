@@ -51,7 +51,6 @@ const selectedLocale = computed({
       <h1>{{ t('app.title') }}</h1>
       <div class="controls">
         <div class="control-group">
-          <span>{{ t('app.language') }}</span>
           <SelectButton
             v-model="selectedLocale"
             :options="localeOptions"
@@ -61,7 +60,6 @@ const selectedLocale = computed({
           />
         </div>
         <div class="control-group">
-          <span>{{ t('app.theme') }}</span>
           <SelectButton
             v-model="theme"
             :options="themeOptions"
