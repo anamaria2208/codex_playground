@@ -50,6 +50,8 @@ onMounted(() => {
         <Button
           class="refresh-button"
           :disabled="loading"
+          :loading="loading"
+          icon="pi pi-refresh"
           :label="t('catFact.refresh')"
           @click="loadFacts"
         />
@@ -104,9 +106,29 @@ onMounted(() => {
 }
 
 .refresh-button {
-  justify-self: start;
-  min-width: 10.5rem;
-  padding-block: 0.45rem;
+  justify-self: center;
+  min-width: 11.5rem;
+}
+
+.refresh-button :deep(.p-button) {
+  background: linear-gradient(135deg, #2563eb 0%, #14b8a6 100%);
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.28);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  padding: 0.58rem 1.2rem;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.refresh-button :deep(.p-button:not(:disabled):hover) {
+  box-shadow: 0 14px 28px rgba(20, 184, 166, 0.35);
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.refresh-button :deep(.p-button:disabled) {
+  opacity: 0.8;
 }
 
 .loading {
@@ -130,7 +152,11 @@ onMounted(() => {
 
 @media (max-width: 600px) {
   .refresh-button {
-    justify-self: stretch;
+    width: 100%;
+  }
+
+  .refresh-button :deep(.p-button) {
+    width: 100%;
   }
 }
 
