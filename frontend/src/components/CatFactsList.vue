@@ -74,7 +74,7 @@ onMounted(() => {
 }
 
 .cat-card :deep(.p-card) {
-  background: var(--card-surface);
+  background: var(--card-surface) !important;
   border: 1px solid var(--fact-border);
 }
 
@@ -84,13 +84,13 @@ onMounted(() => {
 }
 
 .cat-card :deep(.p-card-title) {
-  color: var(--card-title);
+  color: var(--card-title) !important;
   font-size: 1.2rem;
   font-weight: 800;
 }
 
 .cat-card :deep(.p-card-subtitle) {
-  color: var(--text-muted);
+  color: var(--text-muted) !important;
   font-size: 0.9rem;
 }
 
