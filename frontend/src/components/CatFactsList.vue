@@ -73,6 +73,11 @@ onMounted(() => {
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
 }
 
+.cat-card :deep(.p-card) {
+  background: var(--card-surface);
+  border: 1px solid var(--fact-border);
+}
+
 .cat-card :deep(.p-card-body) {
   gap: 0.45rem;
   padding: 0.8rem;

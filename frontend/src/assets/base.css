@@ -13,6 +13,7 @@
   --fact-bg-end: #f1f5f9;
   --fact-border: #e2e8f0;
   --fact-border-accent: #1d4ed8;
+  --card-surface: rgba(255, 255, 255, 0.82);
 
   color: var(--text-primary);
   font-family: 'Avenir Next', 'Nunito Sans', 'Segoe UI', sans-serif;
@@ -36,6 +37,7 @@
   --fact-bg-end: #111827;
   --fact-border: #334155;
   --fact-border-accent: #60a5fa;
+  --card-surface: rgba(15, 23, 42, 0.78);
 
   color-scheme: dark;
 }
@@ -59,4 +61,29 @@ body {
     radial-gradient(80rem 35rem at 12% -10%, rgba(30, 64, 175, 0.3), transparent 52%),
     radial-gradient(65rem 28rem at 88% -12%, rgba(16, 185, 129, 0.18), transparent 55%),
     linear-gradient(180deg, #020617 0%, #0b1220 100%);
+}
+
+
+.app-header .p-selectbutton .p-togglebutton {
+  color: var(--text-secondary);
+}
+
+.app-header .p-selectbutton .p-togglebutton.p-togglebutton-checked {
+  color: var(--text-primary);
+}
+
+:root.dark-theme .app-header .p-selectbutton .p-togglebutton {
+  background: rgba(30, 41, 59, 0.65);
+  border-color: rgba(148, 163, 184, 0.45);
+  color: #e2e8f0;
+}
+
+:root.dark-theme .app-header .p-selectbutton .p-togglebutton:not(.p-disabled):hover {
+  background: rgba(51, 65, 85, 0.78);
+}
+
+:root.dark-theme .app-header .p-selectbutton .p-togglebutton.p-togglebutton-checked {
+  background: rgba(96, 165, 250, 0.28);
+  border-color: rgba(96, 165, 250, 0.9);
+  color: #f8fafc;
 }
